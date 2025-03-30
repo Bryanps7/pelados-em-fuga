@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url('/assets/img/background.png');
+    background-position-y: 4vh;
+    background-repeat: repeat;
+    background-size: 100%;
+    overflow: hidden;
+}
+
+#manual {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-family: 'Segoe UI';
+}
+
+#manual:hover {
+    transition: 0.5s;
+    transform: translateY(-3px);
+    box-shadow: 0 3px 5px black;
+}
+
+canvas {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: transparent;
+}

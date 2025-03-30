@@ -1,0 +1,44 @@
+body {
+    background: url('/assets/img/background.png');
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    font-family: 'Segoe UI';
+}
+
+#manual {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-family: 'Segoe UI';
+}
+
+#manual:hover {
+    transition: 0.5s;
+    transform: translateY(-3px);
+    box-shadow: 0 3px 5px black;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.5);
+    overflow: scroll;
+    overflow-x: hidden;
+    width: 50%;
+    height: 95%;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+img {
+    width: 60%;
+    border-radius: 30px;
+}
