@@ -8,10 +8,6 @@ let mexicano = new Mexicano(400, -40, 100, 100, '/assets/img/mexicano.png', 4)
 let mulher = new Mulher(200, -280, 100, 100, '/assets/img/mulherObstaculo.png', 4)
 let lutador = new Mulher(200, -280, 100, 100, '/assets/img/lutador.png', 12)
 
-let placa1 = new Place(200, -200, 100, 100, '/assets/img/placa1.png', 4)
-let placa2 = new Place(-200, 800, 100, 100, '/assets/img/placa2.png', 4)
-let placa3 = new Place(-200, 800, 100, 100, '/assets/img/placa3.png', 4)
-
 let banner = new Imagem()
 
 let t1 = new Text()
@@ -151,7 +147,7 @@ function desenha() {
         case 'gameOver':
             t9.des_text('Game Over', 150, 340, '#e8ce5a', '46px Segoe UI')
             break;
-            case 'vitoria':
+        case 'vitoria':
             t9.des_text('Vitória', 150, 340, '#e8ce5a', '46px Segoe UI') 
             victory.play()   
             break;

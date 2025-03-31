@@ -84,10 +84,6 @@ class Mulher extends Player {
     }
 }
 
-class Estrada extends Obj{
-
-}
-
 class Text {
     des_text(text, x, y, cor, font) {
         des.fillStyle = cor
@@ -102,20 +98,5 @@ class Imagem {
         let img = new Image()
         img.src = url
         des.drawImage(img, x, y, w, h)
-    }
-}
-
-class Place extends Obj {
-    drawPlace() {
-        let img = new Image()
-        img.src = this.a
-        des.drawImage(img, this.x, this.y, this.w, this.h)
-    }
-    
-    mov_place() {
-        this.y += this.speed
-        if (this.y >= 780) {
-            this.recomeca()
-        }
     }
 }
