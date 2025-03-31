@@ -9,6 +9,7 @@ let mulher = new Mulher(200, -280, 100, 100, '/assets/img/mulherObstaculo.png', 
 let lutador = new Mulher(200, -280, 100, 100, '/assets/img/lutador.png', 12)
 
 let banner = new Imagem()
+let bannerGameOver = new Imagem()
 
 let t1 = new Text()
 let t2 = new Text()
@@ -19,6 +20,7 @@ let t6 = new Text()
 let t7 = new Text()
 let t8 = new Text()
 let t9 = new Text()
+let t10 = new Text()
 
 let countPts = 2
 let destino = "Paraguai"
@@ -35,7 +37,7 @@ motor.loop = true
 let jogar = 'iniciar'
 
 document.addEventListener('keydown', (e) => {
-    if(e.key === 'm') {
+    if (e.key === 'm') {
         jogar = 'jogando'
     }
 })
@@ -108,10 +110,10 @@ function colisao() {
 }
 
 function desenha() {
-    t1.des_text('Distância: ', 360, 24, '#e8ce5a', '26px Segoe UI')
-    t2.des_text(player.distancia + 'km', 474, 24, '#e8ce5a', '26px Segoe UI')
-    t3.des_text('Destino: ', 360, 48, '#e8ce5a', '26px Segoe UI')
-    t4.des_text(destino, 460, 48, '#e8ce5a', '26px Segoe UI')
+    t1.des_text('Distância: ', 460, 24, '#e8ce5a', '26px Segoe UI')
+    t2.des_text(player.distancia + 'km', 574, 24, '#e8ce5a', '26px Segoe UI')
+    t3.des_text('Destino: ', 460, 48, '#e8ce5a', '26px Segoe UI')
+    t4.des_text(destino, 560, 48, '#e8ce5a', '26px Segoe UI')
     t5.des_text('Vida: ', 40, 24, '#e8ce5a', '26px Segoe UI')
     t6.des_text(player.vida, 100, 24, '#e8ce5a', '26px Segoe UI')
     t7.des_text('Pontos: ', 40, 48, '#e8ce5a', '26px Segoe UI')
@@ -119,37 +121,40 @@ function desenha() {
 
     switch (jogar) {
         case 'iniciar':
-            banner.des_img('/assets/img/banner.jpeg', 50, 150, 500, 500)
+            banner.des_img('/assets/img/banner.jpeg', 100, 150, 500, 500)
+            t10.des_text("Pressione 'M'", 200, 700, '#e8ce5a', '50px Segoe UI')
+            
             break;
-        case 'jogando':
-            if(player.distancia == 0 && destino == 'Paraguai') {
-                player.distancia = 100
-                destino = "México"
-                mexicano.speed = 8
-                mulher.speed = 8
-                speedEst = 6
-            } else if(player.distancia == 0 && destino == 'México') {
-                player.distancia = 100
-                destino = "Santos"
-                mexicano.speed = 12
-                mulher.speed = 12
-                speedEst = 10
-            } else if(player.distancia == 0 && destino == 'Santos') {
-                vitoria()
-            }
-            if(destino == "Santos") {
-                lutador.drawPlayer()
-            }
-            player.drawPlayer()
-            mexicano.drawPlayer()
-            mulher.drawPlayer()
-            break;
-        case 'gameOver':
-            t9.des_text('Game Over', 150, 340, '#e8ce5a', '46px Segoe UI')
-            break;
+            case 'jogando':
+                if (player.distancia == 0 && destino == 'Paraguai') {
+                    player.distancia = 100
+                    destino = "México"
+                    mexicano.speed = 8
+                    mulher.speed = 8
+                    speedEst = 6
+                } else if (player.distancia == 0 && destino == 'México') {
+                    player.distancia = 100
+                    destino = "Santos"
+                    mexicano.speed = 12
+                    mulher.speed = 12
+                    speedEst = 10
+                } else if (player.distancia == 0 && destino == 'Santos') {
+                    vitoria()
+                }
+                if (destino == "Santos") {
+                    lutador.drawPlayer()
+                }
+                player.drawPlayer()
+                mexicano.drawPlayer()
+                mulher.drawPlayer()
+                break;
+                case 'gameOver':
+                    banner.des_img('/assets/img/banner-GameOver.jpeg', 100, 150, 500, 500)
+                    t10.des_text("Pressione 'F5'", 200, 700, '#e8ce5a', '50px Segoe UI')
+                    break;
         case 'vitoria':
-            t9.des_text('Vitória', 150, 340, '#e8ce5a', '46px Segoe UI') 
-            victory.play()   
+            t9.des_text('Vitória', 150, 340, '#e8ce5a', '46px Segoe UI')
+            victory.play()
             break;
     }
 }
@@ -162,7 +167,7 @@ function atualiza() {
         mexicano.mov_carro2()
         mulher.mov_carro2()
         player.mov_carro()
-        if(destino == "Santos") {
+        if (destino == "Santos") {
             lutador.mov_carro2()
         }
         // carro.anim('carro_01_')
@@ -176,7 +181,7 @@ function atualiza() {
 }
 
 function main() {
-    des.clearRect(0, 0, 600, 770)
+    des.clearRect(0, 0, 700, 950)
     desenha()
     atualiza()
     requestAnimationFrame(main)

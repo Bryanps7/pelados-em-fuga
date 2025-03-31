@@ -31,8 +31,8 @@ class Player extends Obj {
         this.x += this.dir
         if (this.x <= 2) {
             this.x = 2
-        } else if (this.x >= 416) {
-            this.x = 416
+        } else if (this.x >= 600) {
+            this.x = 600
         }
     }
 
